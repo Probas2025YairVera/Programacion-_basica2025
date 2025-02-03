@@ -3,12 +3,10 @@
 
 num = int(input('intoduzca un numero: '))
 fact = 1
-for i in range(num,1):
-    fact = fact * i
-    i = i + 1
-    break
-
-print(fact)
+for i in range(1, num + 1):
+    fact *= i
+print('El factorial es', fact)
+ 
 
 
 
