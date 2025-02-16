@@ -5,3 +5,7 @@ file = open('data1.txt','r')
 lineas = file.readlines()
 print(lineas)
 file.close() #Para cerrar el documento
+
+
+
+
