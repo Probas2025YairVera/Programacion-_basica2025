@@ -27,24 +27,18 @@ print("-------EPISODIOS-------")
 for results_ in datos2["results"]:
     print(results_["name"],"-",results_["episode"])
 
-genero = input("----Ingrese el genero de los personajes----\nMale = hombre\nFemale = mujer\n")
+
 Per_Male = []       #lista de personajes masculinos
 Per_Female = []     #lista de personajes femeninos
-if genero == "Male":
-    print("-------PERSONAJES MASCULINOS-------")
-    for result in datos["results"]:
-        if result["gender"] == "Male":
-            Per_Male.append(result["name"])
+
+for result in datos["results"]:
+    if result["gender"] == "Male":
+        Per_Male.append(result["name"])
             
-else:
-    print("-------PERSONAJES FEMENINOS-------")
-    for result in datos["results"]:
-        if result["gender"] == "Female":
-            Per_Female.append(result["name"])
-if genero == "Male":
-    print(Per_Male)
-else:
-    print(Per_Female)
+   
+for result in datos["results"]:
+    if result["gender"] == "Female":
+         Per_Female.append(result["name"])
 
 #Diccionarios de personajes en base a su especie
 Per_Esp = {"Humanos":[], "Aliens":[]}
@@ -78,6 +72,23 @@ print(Per_est)
 
 #GUARDAR LOS DATOS EN UN ARCHIVO TXT
 
-with open("DATOS.txt", "w") as archivo:
+with open("Personajestotales.txt", "w") as archivo:
     for personajes in Per_dict:
-        archivo.write(Per_dict + "\n")
+        archivo.write(personajes + "\n")
+
+with open("Masculinos.txt", "w") as archivo:
+    for personajes in Per_Male:
+        archivo.write(personajes + "\n")
+
+with open("Femeninos.txt", "w") as archivo:
+    for personajes in Per_Female:
+        archivo.write(personajes + "\n")
+
+with open("Especie.txt", "w") as archivo:
+    for clave,valor in Per_Esp.items():
+        archivo.write(f"{clave}: {valor}\n")
+
+
+with open("Estatus.txt", "w") as archivo:
+    for clave,valor in Per_est.items():
+        archivo.write(f"{clave}: {valor}\n")

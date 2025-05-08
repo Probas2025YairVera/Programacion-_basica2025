@@ -1,0 +1,5 @@
+Personajes por Estatus
+
+Vivo: ['Rick Sanchez', 'Morty Smith', 'Summer Smith', 'Beth Smith', 'Jerry Smith', 
+'Abadango Cluster Princess', 'Annie', 'Antenna Morty']
+Muerto: ['Adjudicator Rick', 'Agency Director', 'Alan Rails', 'Albert Einstein', 'Alexander', 'Amish Cyborg']
