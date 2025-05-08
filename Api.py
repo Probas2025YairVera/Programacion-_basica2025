@@ -46,10 +46,38 @@ if genero == "Male":
 else:
     print(Per_Female)
 
-
+#Diccionarios de personajes en base a su especie
 Per_Esp = {"Humanos":[], "Aliens":[]}
-for Humano in datos["results"]:
+humanos = []
+Aliens = []
+for result in datos["results"]:
     if result["species"] == "Human":
-        Per_Esp["Humanos"].append(result["name"])
-
+        humanos.append(result["name"])
+    elif result["species"] == "Alien":
+        Aliens.append(result["name"])
+print("----PERSONAJES POR SU ESPECIE----")
+Per_Esp["Humanos"]=humanos
+Per_Esp["Aliens"]=Aliens
 print(Per_Esp)
+
+#Diccionario de personajes en base a su estatus
+Per_est = {"Vivo":[], "Muerto":[]}
+vivo = []
+muerto = []
+
+for result in datos["results"]:
+    if result["status"] == "Alive":
+        vivo.append(result["name"])
+    elif result["status"] == "Dead":
+        muerto.append(result["name"])
+print("----PERSONAJES POR SU ESTATUS----")
+Per_est["Vivo"] = vivo
+Per_est["Muerto"] = muerto
+print(Per_est)
+
+
+#GUARDAR LOS DATOS EN UN ARCHIVO TXT
+
+with open("DATOS.txt", "w") as archivo:
+    for personajes in Per_dict:
+        archivo.write(Per_dict + "\n")
