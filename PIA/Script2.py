@@ -22,3 +22,4 @@ with open("Especie.txt", "r") as archivo:
 
 
 
+print(Especie)
