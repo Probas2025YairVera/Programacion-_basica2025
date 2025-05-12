@@ -18,8 +18,7 @@ with open("Especie.txt", "r") as archivo:
     contenido = archivo.read()
     Especie = contenido
 
+print(Totales)
 
 
 
-
-print(Especie)
