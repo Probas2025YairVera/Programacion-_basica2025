@@ -49,10 +49,7 @@ for result in datos["results"]:
         humanos.append(result["name"])
     elif result["species"] == "Alien":
         Aliens.append(result["name"])
-print("----PERSONAJES POR SU ESPECIE----")
-Per_Esp["Humanos"]=humanos
-Per_Esp["Aliens"]=Aliens
-print(Per_Esp)
+
 
 #Diccionario de personajes en base a su estatus
 Per_est = {"Vivo":[], "Muerto":[]}
@@ -64,10 +61,8 @@ for result in datos["results"]:
         vivo.append(result["name"])
     elif result["status"] == "Dead":
         muerto.append(result["name"])
-print("----PERSONAJES POR SU ESTATUS----")
-Per_est["Vivo"] = vivo
-Per_est["Muerto"] = muerto
-print(Per_est)
+
+
 
 
 #GUARDAR LOS DATOS EN UN ARCHIVO TXT
@@ -84,11 +79,19 @@ with open("Femeninos.txt", "w") as archivo:
     for personajes in Per_Female:
         archivo.write(personajes + "\n")
 
-with open("Especie.txt", "w") as archivo:
-    for clave,valor in Per_Esp.items():
-        archivo.write(f"{clave}: {valor}\n")
+with open("Humanos.txt", "w") as archivo:
+    for personajes in humanos:
+        archivo.write(personajes + "\n")
+
+with open("Aliens.txt", "w") as archivo:
+    for personajes in Aliens:
+        archivo.write(personajes + "\n")
 
 
-with open("Estatus.txt", "w") as archivo:
-    for clave,valor in Per_est.items():
-        archivo.write(f"{clave}: {valor}\n")
+with open("Vivos.txt", "w") as archivo:
+    for personajes in vivo:
+        archivo.write(personajes + "\n")
+
+with open("Muertos.txt", "w") as archivo:
+    for personajes in muerto:
+        archivo.write(personajes + "\n")
