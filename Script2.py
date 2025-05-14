@@ -1,3 +1,7 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from openpyxl import workbook
+from openpyxl.chart import PieChart, ProjectedPieChart, reference
 
 with open("Personajestotales.txt", "r") as archivo:
     contenido = archivo.read()
@@ -32,7 +36,7 @@ PersonajesM = [femenina.strip() for femenina in Femeninos if femenina.strip()]
 cantidad2 = len(PersonajesM)
 
 
-dicc1 = {"Hombres" : [cantidad1], "Mujeres" : [cantidad2]}
+dicc1 = {"Cantidad": ["Personajes"], "Hombres" : [cantidad1], "Mujeres" : [cantidad2]}
 print(type(dicc1))
 print(dicc1)       #Diccionario de personajes masculinos y femeninos
 
@@ -41,7 +45,7 @@ cantidad3 = len(PersonajesHumanos)
 
 PersonajesAliens = [alien.strip() for alien in aliens if alien.strip()]
 cantidad4 = len(PersonajesAliens)
-dicc2 = {"Humanos" : [cantidad3], "Aliens" : [cantidad4]}
+dicc2 = {"Cantidad": ["Personajes"], "Humanos" : [cantidad3], "Aliens" : [cantidad4]}
 print(dicc2)       #Diccionario de personajes Humanos y Aliens
 
 
@@ -50,5 +54,33 @@ cantidad5 = len(personajesvivos)
 
 personajesmuertos = [muerto.strip() for muerto in muertos if muerto.strip()]
 cantidad6 = len(personajesmuertos)
-dicc3 = {"Vivos" : [cantidad5], "Muertos" : [cantidad6]}    
+dicc3 = {"Cantidad": ["Personajes"], "Vivos" : [cantidad5], "Muertos" : [cantidad6]}    
 print(dicc3)       #Diccionario de personajes vivos y muertos
+
+
+#Hacer el data frame
+df = pd.DataFrame(dicc1)
+df2 = pd.DataFrame(dicc2)
+df3 = pd.DataFrame(dicc3)
+df.to_excel("Libro1.xlsx", index=False)
+df2.to_excel("Libro2.xlsx",index=False)
+df3.to_excel("Libro3.xlsx",index=False)
+
+
+#GRAFICA1
+width = 0.25
+workbook1 = "Libro1.xlsx"
+DF = pd.read_excel(workbook1)
+print(DF.head())
+datos = DF[["Cantidad", "Hombres", "Mujeres"]]
+datos.plot(x="Cantidad", kind="bar", rot=0)
+plt.title("Grafica de personajes por genero")
+plt.xlabel("Perosnajes")
+plt.ylabel("Cantidad")
+plt.grid()
+plt.show()
+
+#GRAFICA2
+
+
+
