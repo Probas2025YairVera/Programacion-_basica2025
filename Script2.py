@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from openpyxl import workbook
-from openpyxl.chart import PieChart, ProjectedPieChart, reference
+
 
 with open("Personajestotales.txt", "r") as archivo:
     contenido = archivo.read()
@@ -82,5 +81,22 @@ plt.show()
 
 #GRAFICA2
 
+especie = ["Humanos", "Aliens"]
+cantidad = [15,5]
+
+plt.pie(cantidad, labels=especie, autopct="%1.1f%%")
+plt.title("Grafica de personajes por especie")
+plt.show()
 
 
+#Grafica3
+
+estatus  = ["Vivo","Muerto"]
+cantidad = [8,6]
+
+plt.plot(estatus,cantidad,color="blue")
+plt.title("Grafica de personajes por estatus")
+plt.ylabel("Cantidad")
+plt.xlabel("Estatus")
+plt.legend()
+plt.show()
